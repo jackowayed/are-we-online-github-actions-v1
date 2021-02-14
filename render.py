@@ -1,4 +1,3 @@
-import functools
 import os
 import templite
 import time
@@ -11,7 +10,6 @@ def latest_phone_home_errory():
   with open("latest_phone_home") as f:
     return int(f.read())
 
-@functools.cache
 def latest_phone_home():
   try:
     return latest_phone_home_errory()
