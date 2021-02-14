@@ -1,3 +1,4 @@
+from datetime import datetime
 import os
 import templite
 import time
@@ -26,7 +27,8 @@ def get_context():
   if online:
     more_info = "Our Internet and power are operational."
   else:
-    more_info = "Currently offline; our power has likely been out since<br />"
+    more_info = "Currently offline; our power has likely been out since<br />\n"
+    more_info += datetime.utcfromtimestamp(latest_phone_home()).strftime("%c")
   return locals()
 
 def render():
