@@ -1,5 +1,7 @@
 #!/bin/sh
 
+git pull --rebase
+
 ./update_and_render
 
 git add -A
