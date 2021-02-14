@@ -1,0 +1,8 @@
+#!/bin/sh
+
+./update_and_render
+
+git add -A
+timestamp=$(date -u)
+git commit -m "We are online: ${timestamp}" || exit 0
+git push
