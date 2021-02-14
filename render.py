@@ -14,12 +14,12 @@ def latest_phone_home_errory():
 @functools.cache
 def latest_phone_home():
   try:
-    return latest_phone_home_error()
-  except:
+    return latest_phone_home_errory()
+  except FileNotFoundError:
     return 0
 
 def is_online():
-  return time.time() - latest_phone_home() > os.getenv("MAX_AGE_S", 10 * 60)
+  return time.time() - latest_phone_home() < os.getenv("MAX_AGE_S", 10 * 60)
 
 def get_context():
   online = is_online()
